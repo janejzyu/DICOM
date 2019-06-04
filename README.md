@@ -18,6 +18,10 @@ dicoms/
         etc.
 
 
+patient_id,original_id
+SCD0000101,SC-HF-I-1
+SCD0000201,SC-HF-I-2
+
 pairing.csv
 dimcon_path, i-mask_path
 ../dicoms/SCD0000101/24.dcm, ../contourfiles/SC-HF-I-1/i-mask/24.png

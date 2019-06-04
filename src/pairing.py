@@ -1,6 +1,6 @@
 import os
+from parsing import parse_contour_file, parse_dicom_file, poly_to_mask
 
-INNER = 'i-contours'
 
 def get_patient_id(original_id):
 	raise NotImplementedError

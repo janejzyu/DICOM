@@ -6,6 +6,8 @@ from pydicom.errors import InvalidDicomError
 import numpy as np
 from PIL import Image, ImageDraw
 
+import config
+
 
 def parse_contour_file(filename):
     """Parse the given contour filename
@@ -53,6 +55,38 @@ def parse_dicom_file(filename):
         return dcm_dict
     except InvalidDicomError:
         return None
+
+def parse_mask_file(filename):
+    """Parse the given mask filename
+
+    :param filename: filepath to the mask file to parse
+    :return: dictionary with mask image data
+    """   
+    img = Image.open(filename)
+    width, height = img.size[1], img.size[0]
+    mask_image = np.array(img).astype(bool).reshape(width, height)
+    mask_dict = {'pixel_data' : mask_image}
+    return mask_dict
+
+
+def parse_file_list(filename_list, file_type):
+    """Parse the given filename list
+
+    :param filename_list: list of filepath to parse
+    :param file_type
+    :return: numpy array of parsed data 
+    """ 
+    res = []
+    for filename in filename_list:
+        try:
+            if file_type == config.MASK_FILE_TYPE :
+                res.append(parse_mask_file(filename)['pixel_data'])
+            else:
+                assert file_type == config.DICOM_FILE_TYPE
+                res.append(parse_dicom_file(filename)['pixel_data'])
+        except TypeError:
+            pass # None type result from parse_dicom_file
+    return np.array(res)
 
 
 def poly_to_mask(polygon, width, height):
