@@ -1,3 +1,5 @@
+```bash
+
 contourfiles/
     original_id/
         o-contours/
@@ -19,3 +21,5 @@ dicoms/
 pairing.csv
 dimcon_path, i-mask_path
 ../dicoms/SCD0000101/24.dcm, ../contourfiles/SC-HF-I-1/i-mask/24.png
+
+```
