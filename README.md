@@ -1,6 +1,6 @@
 # Challenge
 
-##### Check Challenge_description.pdf for more details.
+#### Check Challenge_description.pdf for more detailed description of this challenge.
 
 In this challenge, you will download studies of DICOM MRI images and contour files to prepare them for training a convolutional neural network. The inputs to the network will be dicom images and the targets will be the contours encoded as boolean masks (foreground pixels = True; background pixels = False). 
 
