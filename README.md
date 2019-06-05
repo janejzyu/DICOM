@@ -70,6 +70,8 @@ After building the pipeline, please answer the following questions:
 
 I impletmented a function that plot the mask on top of its corresponding dicom image. Results are saved in **i-comb** folders.
 
+To-do: unit test of parsing.py is not implemented yet. Toy contours with lower dimension can be tested to verify the functions.
+
 #### 2. What changes did you make to the code, if any, in order to integrate it into our production code base? 
 
 I didn't change any given code. Further intergration can be made by building a **abstract class/interface** on of the parsing.py file or build a **parser** class with methods in parsing.py.
