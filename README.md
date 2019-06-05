@@ -102,9 +102,10 @@ def parse_file_list(filename_list, file_type) -> np.ndarray
 
 #### 2. How do you/did you verify that the pipeline was working correctly?
 
-x, y is extracted from indexing pairing.csv file. **test_output/part2.txt** contains indices for each epoch and batch. I verified the results by checking x, y shape and whether the index 
-   * covers the entire list
-   * randomly samples with size = batch_size from the entire epoch
+x, y is extracted from indexing pairing.csv file. **test_output/part2.txt** contains indices for each epoch and batch. I verified the results by checking
+   * indice covers the entire list
+   * x, y shape
+   * indices are random samples with len = batch_size from the entire epoch
    
 #### 3. Given the pipeline you have built, can you see any deficiencies that you would change if you had more time? If not, can you think of any improvements/enhancements to the pipeline that you could build in?
 
@@ -115,6 +116,8 @@ x, y is extracted from indexing pairing.csv file. **test_output/part2.txt** cont
 
         * Manual deletion/edition to dicom and/or mask files
 Unfortunately, if there is adverserial attack, since x, y is loaded seperately, it can end up having different number of samples for a batch. It'd be nice to assert x, y has to be same size, raise an exception if there is a mismatching.
+
+* I assumed all image shape are the same. In the production pipeline, there should be a step to rescale/crop the image to the same shape at preprocessing phase.
 
 * constants can be saved as enums instand of variables in config.py
 
@@ -138,4 +141,4 @@ Unfortunately, if there is adverserial attack, since x, y is loaded seperately, 
         raise NotImplementedError
 ```
 
-* Maskes can be saved as run length encoding instead of .png image, which might save storage space. 
+* Masks can be saved as run length encoding instead of .png image, which might save storage space. 
