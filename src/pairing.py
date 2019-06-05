@@ -2,18 +2,27 @@ import os
 from parsing import parse_contour_file, parse_dicom_file, poly_to_mask
 
 
-def get_patient_id(original_id):
+def plot_dcm_with_mask(dcm_pixel, mask):
 	raise NotImplementedError
 
-def get_original_id(patient_id):
+def mask_to_image(mask):
 	raise NotImplementedError
 
-def get_dcm(patient_id, index):
-	"""Get index.dcm for the given patient
+def generate_all_pairing(save_comb = False, mask_type):
+	"""Pair dicom image with its corresponding for all patients
 
-    :param patient_id: filepath to the DICOM file to parse
-    :param index: file index
-    :return: filepath to the DICOM file
+    :param save_comb: whether combined image is saved
+    :param mask_type: as_array or as_image
+    :return: None
     """
 	# raise NotMatchedError
 	raise NotImplementedError
+
+def clean():
+	"""clean all outputs of generate_all_pairing
+	"""
+	raise NotImplementedError
+
+if __name__ == "__main__":
+	 clean()
+	 generate_all_pairing()
