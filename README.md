@@ -1,11 +1,11 @@
 # Challenge
 
-check Challenge_description.pdf for more details.
+##### Check Challenge_description.pdf for more details.
 
 In this challenge, you will download studies of DICOM MRI images and contour files to prepare them for training a convolutional neural network. The inputs to the network will be dicom images and the targets will be the contours encoded as boolean masks (foreground pixels = True; background pixels = False). 
 
 
-Result can be tested by running **src/main.sh**. Each line is to test each question. Logs from part 2 are save in test_output/part2.txt
+Result can be tested by running **src/main.sh**. Each line is to test each question. Logs from part 2 are save in **test_output/part2.txt**
 
 ```bash
 # part 1
@@ -102,7 +102,7 @@ def parse_file_list(filename_list, file_type) -> np.ndarray
 
 #### 2. How do you/did you verify that the pipeline was working correctly?
 
-x, y is extracted from indexing pairing.csv file. I verified the results by checking x, y shape and whether the index 
+x, y is extracted from indexing pairing.csv file. **test_output/part2.txt** contains indices for each epoch and batch. I verified the results by checking x, y shape and whether the index 
    * covers the entire list
    * randomly samples with size = batch_size from the entire epoch
    
@@ -137,3 +137,5 @@ Unfortunately, if there is adverserial attack, since x, y is loaded seperately, 
     def augment(self, x):
         raise NotImplementedError
 ```
+
+* Maskes can be saved as run length encoding instead of .png image, which might save storage space. 
