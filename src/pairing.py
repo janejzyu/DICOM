@@ -1,3 +1,6 @@
+"""Pairing code for all patients"""
+
+
 from os import listdir, mkdir, remove
 from os.path import join
 from shutil import rmtree
@@ -9,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import config
 from PIL import Image
+from tqdm import tqdm
 
 def generate_link(link_name = config.LINK_PATH):
 	"""Generator of link between patient_id, original_id
@@ -46,7 +50,7 @@ def generate_all_pairing(save_comb = False):
 	pair_file = open(config.PAIR_PATH, "w+")
 	header = config.DICOM_FILE_TYPE + ',' + config.MASK_FILE_TYPE +'\n'
 	pair_file.write(header)
-	for patient_id, original_id in generate_link():
+	for patient_id, original_id in tqdm(generate_link()):
 		cur_contour_path = config.CONTOUR_PATH.format(original_id)
 		cur_mask_path = config.MASK_PATH.format(original_id)
 		cur_comb_path = config.COMB_PATH.format(original_id)

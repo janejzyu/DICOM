@@ -1,3 +1,5 @@
+"""Construct dataset given input and label paths"""
+
 from parsing import parse_file_list
 import config
 

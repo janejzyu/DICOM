@@ -1,3 +1,7 @@
+"""Tests for pairing.py functions"""
+
+
+
 from pairing import *
 import sys
 
@@ -14,7 +18,9 @@ def plot_dcm_with_mask_test(d_test, c_test):
 	dcm_test = parse_dicom_file(d_test)['pixel_data'] # FileNotFoundError
 	width, height = dcm_test.shape
 	mask_test = poly_to_mask(contour, width, height)
-	img = plot_dcm_with_mask(dcm_test, mask_test) 
+	img = plot_dcm_with_mask(dcm_test, mask_test)
+	img.savefig('test_output/test.png', bbox_inches='tight', transparent=True, pad_inches=0.0)
+ 
 
 
 if __name__ == "__main__":

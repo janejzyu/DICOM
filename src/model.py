@@ -1,3 +1,7 @@
+"""Model class given dataset and model meta param"""
+
+
+
 import numpy as np
 import config
 
@@ -30,7 +34,8 @@ class Model():
 		"""
 		for ind in self._generate_index(batch_size = batch_size):
 			x, y = self.dataset.get_data(ind)
-			yield x, y, ind
+			print(ind)
+			yield x, y
 	
 	def next_batch(self):
 		try:

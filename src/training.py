@@ -1,3 +1,6 @@
+"""Code to build model with dataset"""
+
+
 import pandas as pd
 import numpy as np
 import config
@@ -35,8 +38,7 @@ if __name__ == "__main__":
 	
 	while True:
 		try:
-			x, y, j = model.next_batch()
-			print(j)
+			x, y = model.next_batch()
 		except TypeError:
 			print('end of training loop')
 			break
